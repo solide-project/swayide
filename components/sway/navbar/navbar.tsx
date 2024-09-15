@@ -17,6 +17,8 @@ import { SwaySettings } from "@/components/sway/settings/settings"
 import { NavItemDownloader } from "@/components/sway/navbar/nav-item-downloader"
 import { SelectedNetwork } from "@/components/sway/navbar/selected-network"
 import { NavItemUtility } from "./nav-item-utility"
+import { CodeXmlIcon } from "lucide-react"
+import { NavItemLoader } from "./nav-item-loader"
 
 interface SwayNavBarProps extends React.HTMLAttributes<HTMLDivElement> {
     url: string,
@@ -44,8 +46,8 @@ export function SwayNavBar({
             <NavTooltipItem tooltip="Console">
                 <NavItemConsole />
             </NavTooltipItem>
-            <NavTooltipItem tooltip="Source">
-                <NavItemContent url={url} />
+            <NavTooltipItem tooltip="Load New Contract">
+                <NavItemLoader />
             </NavTooltipItem>
 
             <div className="mt-auto flex flex-col items-center gap-2">
