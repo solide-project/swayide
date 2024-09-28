@@ -41,7 +41,8 @@ export const useSwayHook = () => {
         }
 
         // Deploy new contract
-        const bytecodeBytes = new TextEncoder().encode(bytecode)
+        // const bytecodeBytes = new TextEncoder().encode(bytecode)
+        const bytecodeBytes = `0x${bytecode}`
         const contractFactory = new ContractFactory(
             bytecodeBytes,
             abi,

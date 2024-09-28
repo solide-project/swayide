@@ -171,10 +171,10 @@ export function ContractInvoke({ className }: ContractInvokeProps) {
 
                 const data = await result.waitForResult()
                 logger.success(<div className="flex">
-                    {"Transaction: "} <a className="underline" href={getTxExplorer(
+                    Transaction: <a className="underline" href={getTxExplorer(
                         chain?.consensusParameters.chainId.toString() || CHAIN_IDS.fuel.testnet.toString(),
                         result.transactionId)} target="_blank">
-                        {result.transactionId}
+                        {" "} {result.transactionId}
                     </a>
                 </div>)
             }
@@ -196,7 +196,7 @@ export function ContractInvoke({ className }: ContractInvokeProps) {
                 size="sm"
                 onClick={handleDeploy}
                 variant="default"
-                disabled={!abi && !bytecode}
+                disabled={(!abi && !bytecode) || deploying}
             >
                 {deploying ? "Deploying ..." : "Deploy"}
             </Button>
@@ -286,10 +286,13 @@ export function ContractInvoke({ className }: ContractInvokeProps) {
                         )}
 
                         <div className="flex items-center gap-2">
-                            <Switch
-                                checked={dryRun}
-                                onCheckedChange={() => setDryRun(!dryRun)}
-                            />
+                            <div className="flex items-center">
+                                <div>Dry Run</div>
+                                <Switch
+                                    checked={dryRun}
+                                    onCheckedChange={() => setDryRun(!dryRun)}
+                                />
+                            </div>
                             <Button
                                 className="w-full"
                                 onClick={invokeCall}

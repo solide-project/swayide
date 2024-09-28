@@ -36,6 +36,7 @@ import path from "path"
 import { JsonAbi, StorageSlot } from "fuels"
 import { FileTree } from "@/components/core/file/file-tree"
 import { UTILITY_KEY } from "./navbar/nav-item-utility"
+import { UtiltyTab } from "./utils/utility-tab"
 
 export const hexToDecimal = (hex: string): number => parseInt(hex, 16)
 
@@ -183,6 +184,8 @@ export function SwayIDE({
                             <FileTree className="rounded-lg bg-grayscale-025 pb-4" />)}
                         {isNavItemActive(CODE_KEY) && (
                             <BuildDeploy className="rounded-lg bg-grayscale-025" />)}
+                        {isNavItemActive(UTILITY_KEY) && (
+                            <UtiltyTab className="rounded-lg bg-grayscale-025" />)}
                     </div>
                 </ResizablePanel>
                 {(isNavItemActive(FILE_KEY) || isNavItemActive(CODE_KEY)) && (
